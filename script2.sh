@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cut -d " " -f1 downloads.txt | sort -u
-cut -d " " -f3 downloads.txt | sort | uniq -c
+awk '{v[$1]+=$3} END {for (r in v) print r, v[r]}' < downloads.txt | sort -u
+
 
